@@ -53,7 +53,7 @@ const setupServer = () => {
   });
 };
 
-export default setupServer;
+export default setupServer();
 
 // Створіть в корні проєкта папку src.
 
