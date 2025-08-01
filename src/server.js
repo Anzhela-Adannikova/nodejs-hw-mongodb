@@ -3,7 +3,6 @@ import cors from 'cors';
 import pino from 'pino-http';
 import dotenv from 'dotenv';
 import { getContactId, getContacts } from './service/contacts.js';
-import { ENV_VARS } from './constants/envVars.js';
 
 dotenv.config();
 
@@ -47,7 +46,7 @@ const setupServer = () => {
     });
   });
 
-  const PORT = Number(ENV_VARS.PORT) || 3000;
+  const PORT = Number(PORT) || 3000;
 
   app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
