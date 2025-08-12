@@ -26,6 +26,7 @@ const constantSchema = new Schema(
   },
   {
     timestamps: true,
+    versionKey: false,
   },
 );
 
