@@ -6,15 +6,25 @@ import {
   getContacts,
   updateContact,
 } from '../services/contacts.js';
-import { createContactValidationSchema } from '../validation/contacts.js';
+
+const buildContactFilter = (query) => ({
+  contactType: query.contactType,
+  isFavorite: query.isFavorite,
+});
 
 export const getContactsController = async (req, res) => {
-  const contacts = await getContacts();
+  const contactsData = await getContacts({
+    page: req.validatedQuery.page,
+    perPage: req.validatedQuery.perPage,
+    sortBy: req.validatedQuery.sortBy,
+    sortOrder: req.validatedQuery.sortOrder,
+    filter: buildContactFilter(req.validatedQuery),
+  });
 
   res.json({
     status: 200,
     message: 'Successfully found contacts!',
-    data: contacts,
+    data: contactsData,
   });
 };
 
@@ -34,12 +44,6 @@ export const getContactIdController = async (req, res, next) => {
 };
 
 export const createContactController = async (req, res) => {
-  await createContactValidationSchema.validateAsync(req.body, {
-    allowUnknown: false,
-    abortEarly: false,
-    convert: false,
-  });
-
   const contact = await createContact(req.body);
 
   res.status(201).json({
