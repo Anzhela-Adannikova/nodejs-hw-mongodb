@@ -8,10 +8,3 @@ export const getContactValidationSchema = Joi.object({
   contactType: Joi.string().valid('work', 'home', 'personal'),
   isFavourite: Joi.boolean(),
 });
-
-// За бажанням додайте можливість фільтрації контактів за типом,
-// властивістю isFavourite у відповіді для маршруту GET /contacts.
-// Для цього використовуйте такі query параметри запиту:
-
-// type - відображає тип контакту, значення властивості contactType
-// isFavourite - відображає чи є контакт обраним

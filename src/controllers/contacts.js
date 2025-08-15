@@ -9,7 +9,7 @@ import {
 
 const buildContactFilter = (query) => ({
   contactType: query.contactType,
-  isFavorite: query.isFavorite,
+  isFavourite: query.isFavourite,
 });
 
 export const getContactsController = async (req, res) => {
