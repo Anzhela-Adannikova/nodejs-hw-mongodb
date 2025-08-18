@@ -7,13 +7,30 @@ import {
   updateContact,
 } from '../services/contacts.js';
 
+const buildContactFilter = (query) => ({
+  contactType: query.contactType,
+  isFavourite: query.isFavourite,
+});
+
+export const getContactsController = async (req, res) => {
+  const contactsData = await getContacts({
+    page: req.validatedQuery.page,
+    perPage: req.validatedQuery.perPage,
+    sortBy: req.validatedQuery.sortBy,
+    sortOrder: req.validatedQuery.sortOrder,
+    filter: buildContactFilter(req.validatedQuery),
+  });
+
 export const getContactsController = async (req, res) => {
   const contacts = await getContacts();
+
 
   res.json({
     status: 200,
     message: 'Successfully found contacts!',
-    data: contacts,
+
+    data: contactsData,
+
   });
 };
 
