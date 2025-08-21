@@ -21,16 +21,11 @@ export const getContactsController = async (req, res) => {
     filter: buildContactFilter(req.validatedQuery),
   });
 
-export const getContactsController = async (req, res) => {
-  const contacts = await getContacts();
-
-
   res.json({
     status: 200,
     message: 'Successfully found contacts!',
 
     data: contactsData,
-
   });
 };
 
