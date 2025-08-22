@@ -39,6 +39,10 @@ export const getContacts = async ({
     contactConditions.where('isFavourite').equals(filter.isFavourite);
   }
 
+  if (filter.userId) {
+    contactConditions.where('userId').equals(filter.userId);
+  }
+
   const [contacts, contactsCount] = await Promise.all([
     Contact.find()
       .merge(contactConditions)

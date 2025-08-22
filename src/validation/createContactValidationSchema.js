@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import { isValidObjectId } from 'mongoose';
 
 export const createContactValidationSchema = Joi.object({
   name: Joi.string().min(3).max(20).required(),
@@ -13,4 +14,14 @@ export const createContactValidationSchema = Joi.object({
   isFavourite: Joi.boolean(),
 
   contactType: Joi.string().valid('work', 'home', 'personal').required(),
+
+  userId: Joi.string().custom((value, helper) => {
+    const isValidId = isValidObjectId(value);
+
+    if (!isValidId) {
+      return helper.message('Not valid objectId');
+    }
+
+    return value;
+  }),
 });

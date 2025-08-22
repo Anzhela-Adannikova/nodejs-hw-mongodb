@@ -13,12 +13,16 @@ const buildContactFilter = (query) => ({
 });
 
 export const getContactsController = async (req, res) => {
+  const filters = buildContactFilter(req.validatedQuery);
+  filters.userId = req.user._id;
+
   const contactsData = await getContacts({
     page: req.validatedQuery.page,
     perPage: req.validatedQuery.perPage,
     sortBy: req.validatedQuery.sortBy,
     sortOrder: req.validatedQuery.sortOrder,
-    filter: buildContactFilter(req.validatedQuery),
+    filters,
+    // filter: buildContactFilter(req.validatedQuery),
   });
 
   res.json({
@@ -45,7 +49,10 @@ export const getContactIdController = async (req, res, next) => {
 };
 
 export const createContactController = async (req, res) => {
-  const contact = await createContact(req.body);
+  const contact = await createContact({
+    ...req.body,
+    parentId: req.body.parentId ?? req.user._id,
+  });
 
   res.status(201).json({
     status: 201,
