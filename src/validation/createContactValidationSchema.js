@@ -6,10 +6,7 @@ export const createContactValidationSchema = Joi.object({
 
   phoneNumber: Joi.string().min(8).max(20).required(),
 
-  email: Joi.string().email({
-    minDomainSegments: 2,
-    tlds: { allow: ['com', 'net'] },
-  }),
+  email: Joi.string().email().min(6),
 
   isFavourite: Joi.boolean(),
 

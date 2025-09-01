@@ -1,11 +1,6 @@
 import Joi from 'joi';
 
 export const loginUserValidationSchema = Joi.object({
-  email: Joi.string()
-    .required()
-    .email({
-      minDomainSegments: 2,
-      tlds: { allow: ['com', 'net'] },
-    }),
+  email: Joi.string().required().email(),
   password: Joi.string().required(),
 });
