@@ -6,7 +6,7 @@ export const updateContactValidationSchema = Joi.object({
   phoneNumber: Joi.string().min(8).max(20),
   email: Joi.string().email().min(6),
 
-  isFavourite: Joi.boolean(),
+  isFavourite: Joi.bool(),
   contactType: Joi.string().valid('work', 'home', 'personal'),
 
   parentId: Joi.string().custom((value, helper) => {

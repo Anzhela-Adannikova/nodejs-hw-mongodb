@@ -8,7 +8,7 @@ export const createContactValidationSchema = Joi.object({
 
   email: Joi.string().email().min(6),
 
-  isFavourite: Joi.boolean(),
+  isFavourite: Joi.bool(),
 
   contactType: Joi.string().valid('work', 'home', 'personal').required(),
 
