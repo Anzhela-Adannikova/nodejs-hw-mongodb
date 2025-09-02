@@ -29,7 +29,7 @@ authRouter.post(
 
 authRouter.post('/auth/logout', logoutUserContrller);
 
-authRouter.post('/auth/refresh-session', refreshSessionController);
+authRouter.post('/auth/refresh', refreshSessionController);
 
 authRouter.post(
   '/auth/send-reset-email',
