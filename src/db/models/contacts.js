@@ -27,7 +27,6 @@ const constantSchema = new Schema(
       type: Schema.Types.ObjectId,
       required: true,
     },
-
     photo: {
       type: String,
       required: false,
