@@ -20,7 +20,7 @@ requestBody:
             description: 'User name'
             type: string
             example: 'Ivan Ivanenko'
-          emal:
+          email:
             description: 'User email'
             type: string
             example: 'vasyl9@example.com'
@@ -54,5 +54,5 @@ responses:
                 email:
                   type: string
                   example: 'vasyl9@example.com'
-'409':
-  $ref: '../../components/responses/409.yaml'
+  '409':
+    $ref: '../../components/responses/409.yaml'
