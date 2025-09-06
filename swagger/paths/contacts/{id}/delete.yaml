@@ -1,5 +1,4 @@
 # описи маршрутів, що стосуються конкретного контакту за його ID
-# swagger/paths/studens/{id}/get.yaml
 tags:
   - Contacts
 summary: Delete student by id

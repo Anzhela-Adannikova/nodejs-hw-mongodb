@@ -63,7 +63,7 @@ responses:
                 - hasNextPage
                 - hasPreviousPage
               properties:
-                data:
+                contacts:
                   type: array
                   items:
                     $ref: '../../components/schemas/contact.yaml'
