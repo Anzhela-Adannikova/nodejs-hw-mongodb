@@ -13,7 +13,7 @@ tags:
     description: Auth operations.
 servers:
   - url: http://localhost:3000
-  - url: http://localhost:3000/api-docs
+  - url: https://nodejs-hw-mongodb-q4yx.onrender.com
   #посилання на задеплоєний сайт
 paths:
   /contacts:
