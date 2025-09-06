@@ -1,0 +1,45 @@
+tags:
+  - Auth
+summary: Login user
+operationId: loginUser
+description: 'Login user'
+security:
+  - bearerAuth: []
+requestBody:
+  required: true
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - email
+          - password
+        properties:
+          emal:
+            type: string
+            format: email
+            example: 'vasyl9@example.com'
+          password:
+            type: number
+            example: 'vldfmvvdfjgdfg'
+responses:
+  '200':
+    description: Successfully logged in a user!
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully logged in a user!
+            data:
+              type: object
+              properties:
+                accessToken: string
+                example: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuYXV0aDAuY29tLyIsImF1ZCI6Imh0dHBzOi8vYXBpLmV4YWxwbGUuY29tL2NhbGVuZGFyL3YxLyIsInN1YiI6InVzcl8xMjMiLCJpYXQiOjE0NTg3ODU3OTYsImV4cCI6MTQ1ODg3MjE5Nn0.CA7eaHjIHz5NxeIJoFK9krqaeZrPLwmMmgI_XiQiIkQ'
+'401':
+  $ref: '../../components/responses/401.yaml'

@@ -26,7 +26,7 @@ requestBody:
           emal:
             description: 'Contact email'
             type: string
-            example: vasyl9@example.com
+            example: 'vasyl9@example.com'
           isFavourite:
             description: 'Contact is favourite'
             type: boolean
@@ -35,7 +35,7 @@ requestBody:
           contactType:
             description: 'Contact type'
             type: string
-            example: work
+            example: 'work'
             enum: ['work', 'home', 'personal']
           photo:
             description: 'Contact photo'

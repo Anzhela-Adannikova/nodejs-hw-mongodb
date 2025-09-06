@@ -29,7 +29,7 @@ requestBody:
           emal:
             description: 'Contact email'
             type: string
-            example: vasyl9@example.com
+            example: 'vasyl9@example.com'
           isFavourite:
             description: 'Contact is favourite'
             type: boolean
