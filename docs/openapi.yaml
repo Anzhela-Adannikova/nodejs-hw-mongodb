@@ -14,7 +14,7 @@ tags:
 servers:
   - url: http://localhost:3000
   - url: https://nodejs-hw-mongodb-q4yx.onrender.com
-  #посилання на задеплоєний сайт
+
 paths:
   /contacts:
     get:
@@ -62,3 +62,4 @@ components:
     bearerAuth:
       type: http
       scheme: bearer
+      bearerFormat: JWT
