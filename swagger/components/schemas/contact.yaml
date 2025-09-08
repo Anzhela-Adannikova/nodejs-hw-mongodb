@@ -23,7 +23,7 @@ properties:
     description: 'Contact phoneNumber'
     type: string
     example: +380000000009
-  emal:
+  email:
     description: 'Contact email'
     type: string
     example: vasyl9@example.com
